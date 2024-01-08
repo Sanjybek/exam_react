@@ -1,0 +1,100 @@
+@mixin fontSize14 {
+    font-size: 12px;
+}
+$colorRed: red;
+// $colorBlack: black;
+.main {
+    width: 100%;
+}
+.container {
+    max-width: 1680px;
+    margin: 0 auto;
+    padding: 0 5px;
+    margin:  20px 50px 50px 50px;
+}
+.main {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    &_search {
+        max-width: 700px;
+        display: flex;
+        justify-content: start;
+        gap: 20px;
+    }
+    &_inp{
+        width: 70%;
+        height: 47px;
+        border-radius: 10px;
+        font-size: 17px;
+    }
+    &_btn {
+        padding: 10px 30px;
+        border: 1px solid black;
+        border-radius: 10px;
+    }
+    &__card {
+        padding: 30px 20px;
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 100px;
+        row-gap: 20px;
+    }
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    &__img {
+        width: 169px;
+        height: 169px;
+        object-fit: cover;
+        border-radius: 20px;
+    }
+}
+
+.sort {
+    display: flex;
+    gap: 20px;
+}
+.put__btn {
+    cursor: pointer;
+    color: $colorRed;
+    @include fontSize14;
+}
+.bascet__btn {
+    cursor: pointer;
+    color: blue;
+
+}
+.price {
+    font-size: 14px;
+    @include fontSize14;
+    &__li {
+        display: inline-flex;
+        padding: 10px 30px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border-radius: 20px;
+        background: #EEF2D1;
+    }
+}
+.ul__post {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 0px 50px 0px 0px;
+}
+.title {
+    max-width: 160px;
+    font-size: 12px;
+}
+.login {
+    display: flex;
+} 
+.header_login {
+    padding: 10px 30px;
+    border: 1px solid black;
+    border-radius: 10px;
+}

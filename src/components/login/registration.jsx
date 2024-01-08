@@ -26,22 +26,20 @@ const Registration = ({onSubmit,setIsRegister}) => {
         <form  onSubmit={handleSubmit(onSubmit)} className={s.wrapper}>
             <h1>Регистрация</h1>
             <label>
-                <span>Введите логин/email</span>
                 <input type="text" placeholder='user name' {...register('username')}/>
                 <span className={s.wrapper_error}>{errors?.useForm?.message}</span>
             </label>
             <label>
-                <span>пароль</span>
                 <input type="text" placeholder='password' {...register('password')}/>
                 <span className={s.wrapper_error}>{errors?.password?.message}</span>
             </label>
             <label>
-                <span>Подтвердите пароль</span>
                 <input type="text" placeholder='confirm password' {...register('confirmpassword')}/>
                 <span className={s.wrapper_error}>{errors?.confirmpassword?.message}</span>
             </label>
             <button>Зарегистрировать</button>
-            <button type='button' onClick={() => setIsRegister(false)}>есть аккаунта</button>
+            <p>Есть аккаунт? Войдите</p>
+            <button type='button' onClick={() => setIsRegister(false)}>Войти</button>
         </form>
     );
 };

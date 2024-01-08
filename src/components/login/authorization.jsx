@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
+import { Link } from 'react-router-dom';
 
 const shema = yup.object({
     username: yup.string().required('Поле обязательно').min(3, 'Не менее 3-х').max(12, 'Не более 12-ти'),
@@ -23,17 +24,17 @@ const Authorization = ({onSubmit, setIsRegister}) => {
             <form onSubmit={handleSubmit(onSubmit)}  className={s.wrapper}>
                 <h1>Войти</h1>
                 <label>
-                    <span>Введите логин/email</span>
                     <input type="text" placeholder='user name' {...register('username')}/>
                     <span className={s.wrapper_error}>{errors?.useForm?.message}</span>
+
                 </label>
                 <label>
-                    <span>пароль</span>
-                    <input type="text" placeholder='password' {...register('password')}/>
+                    <input type="password"  placeholder='password' {...register('password')}/>
                     <span className={s.wrapper_error}>{errors?.password?.message}</span>
                 </label>
-                <button>Авторизоваться</button>
-                <button type='button' onClick={() => setIsRegister(true)}>нет аккаунта</button>
+                <button>Войти</button>
+                <p>Нет аккаунта? Зарегистрируйтесь</p>
+                <button type='button' onClick={() => setIsRegister(true)}>Зарегистрироваться</button>
             </form>
         </div>
     );

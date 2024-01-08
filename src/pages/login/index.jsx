@@ -1,18 +1,28 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Authorization, Registration } from "../../components/login"
+import { useDispatch, useSelector } from "react-redux"
+import { loginAction, registerAction } from "../../store/login/actions"
+import { useNavigate } from "react-router-dom"
 
 const LoginPage = () => {
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const { isLoad, error } = useSelector((state) => state.loginReducer)
+
     const [isRegister, setIsRegister] = useState(false)
     const onSubmit = (data) => {
         if(isRegister) {
-            console.log(data, 'регистрация');
+            dispatch(registerAction({
+                    username: data.username,
+                    password: data.password
+                }));
         } else {
-            console.log(data, 'авторизация');
+            dispatch(loginAction({navigate, ...data}))
         }
 
     }
-    if(isRegister) return <Registration onSubmit={onSubmit} setIsRegister={setIsRegister}/> 
-    return   <Authorization onSubmit={onSubmit} setIsRegister={setIsRegister}/>
+    return (isRegister) ? <Registration onSubmit={onSubmit} setIsRegister={setIsRegister}/> 
+    : <Authorization onSubmit={onSubmit} setIsRegister={setIsRegister}/>
 }
             
        
